@@ -1,6 +1,7 @@
+import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
-import * as d3 from "d3";
+import { transform } from "../engine";
 import { Graph } from "../types/graph";
 
 interface MapProps {
@@ -20,6 +21,7 @@ export default function Map(props: MapProps) {
   const height = props.height ?? 400;
   const xOffset = width / 2;
   const yOffset = height / 2;
+  const transformNode = transform(xOffset, yOffset);
 
   // Initial Load
   useEffect(() => {
@@ -51,15 +53,7 @@ export default function Map(props: MapProps) {
       .classed("label", true);
 
     function tick() {
-      node.attr(
-        "transform",
-        (d: Node) =>
-          "translate(" +
-          (xOffset + (d?.x ?? 0)) +
-          "," +
-          (yOffset + (d?.y ?? 0)) +
-          ")"
-      );
+      node.attr("transform", transformNode);
     }
 
     d3.forceSimulation()
