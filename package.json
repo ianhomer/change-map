@@ -9,6 +9,8 @@
     "prettier": "npx prettier --check .",
     "prettier:fix": "npx prettier --write .",
     "start": "next start",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "update": "yarn run npm-check-updates -u"
   },
   "husky": {
@@ -21,11 +23,14 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
+    "@types/d3": "^6.2.0",
+    "d3": "^6.5.0",
     "next": "^10.0.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
@@ -33,6 +38,7 @@
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "husky": "^4.3.8",
+    "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
     "npm-check-updates": "^11.0.0",
     "npm-run-all": "^4.1.5",
