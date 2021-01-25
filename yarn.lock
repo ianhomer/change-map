@@ -6094,10 +6094,10 @@ npm-bundled@^1.1.1:
   dependencies:
     npm-normalize-package-bin "^1.0.1"
 
-npm-check-updates@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-11.0.0.tgz#5c6ff6566f1480d9a4322ccf4cfe883d4af012fb"
-  integrity sha512-E6misbx28zljoE7ujj8pQOkWcu9wcuHDUTPvKe1LealmTm2rcDQ/7ztQX5zaHKB91uX+K2bLP9JBG73IjZVJYg==
+npm-check-updates@^11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-11.0.2.tgz#c238efc9833a016b2e11aaec6282e79d016fc78a"
+  integrity sha512-Ck+9Yq6B/N50y6lmGN0bLX1/TEseb/0xTWSAbfia1NVDH2uAzcAhwAgJbkOTqQuM+O6KC80liXTk8tC1w2PKOA==
   dependencies:
     chalk "^4.1.0"
     cint "^8.2.1"
@@ -6114,7 +6114,7 @@ npm-check-updates@^11.0.0:
     lodash "^4.17.20"
     mem "^8.0.0"
     p-map "^4.0.0"
-    pacote "^11.2.2"
+    pacote "^11.2.3"
     parse-github-url "^1.0.2"
     progress "^2.0.3"
     prompts "^2.4.0"
@@ -6407,7 +6407,7 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
-pacote@^11.2.2:
+pacote@^11.2.3:
   version "11.2.3"
   resolved "https://registry.yarnpkg.com/pacote/-/pacote-11.2.3.tgz#3c9f70d281c62c86ca3dc2e17df4234c63c698f1"
   integrity sha512-Jphxyk1EjGyLzNwa+MkbcQUQeTIqlKcIoPq0t9ekR9ZxsTGjzhRjz/cOoL9PTVkqAW1FH7qBoVbYL4FqQGNNJg==
