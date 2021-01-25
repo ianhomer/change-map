@@ -1,4 +1,4 @@
-import { SimulationNodeDatum, SimulationLinkDatum } from "d3-force";
+import { SimulationLinkDatum, SimulationNodeDatum } from "d3-force";
 
 export enum NodeType {
   Generic = "generic",

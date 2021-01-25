@@ -1,7 +1,8 @@
-import Map from "../../components/map";
 import { useRouter } from "next/router";
-import { Graph } from "../../types/graph";
+
+import Map from "../../components/map";
 import graphs from "../../graphs";
+import { Graph } from "../../types/graph";
 
 export default function Page() {
   const router = useRouter();
