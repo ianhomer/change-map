@@ -6,10 +6,11 @@ import { Graph } from "../../types/graph";
 
 export default function Page() {
   const { gid } = useRouter().query;
+  const name: string = (gid as string) ?? "single";
 
   return (
     <>
-      <Map graph={graphs[gid ?? "single"] as Graph} />
+      <Map graph={graphs[name] as Graph} />
     </>
   );
 }
