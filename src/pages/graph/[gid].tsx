@@ -6,7 +6,7 @@ import { Graph } from "../../types/graph";
 
 export default function Page() {
   const router = useRouter();
-  const gid: string = router.query["gid"];
+  const { gid } = router.query;
 
-  return <Map graph={graphs[gid] as Graph} />;
+  return <Map graph={graphs[gid ? gid[0] : "single"] as Graph} />;
 }
