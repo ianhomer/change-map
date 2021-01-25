@@ -58,13 +58,7 @@ export default function Map(props: MapProps) {
       node.attr("transform", transformNode);
     }
 
-    d3.forceSimulation()
-      .nodes(props.graph.nodes)
-      .force("charge", d3.forceManyBody().strength(-300))
-      .force("center", d3.forceCenter(0, 0).strength(0.01))
-      .alpha(0.1)
-      .alphaDecay(0)
-      .on("tick", tick);
+    flow(props.graph, tick);
   }, [props]);
 
   return (

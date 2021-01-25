@@ -1,5 +1,6 @@
-import { Graph } from "../types/graph";
 import * as d3 from "d3";
+
+import { Graph } from "../types/graph";
 
 export const flow = (graph: Graph, tick: () => void) =>
   d3
