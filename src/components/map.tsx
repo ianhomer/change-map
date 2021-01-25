@@ -21,6 +21,8 @@ export default function Map(props: MapProps) {
   const height = props.height ?? 400;
   const xOffset = width / 2;
   const yOffset = height / 2;
+  const DEFAULT_NODE_SIZE = 10;
+  const DEFAULT_NODE_TYPE = "change";
   const transformNode = transform(xOffset, yOffset);
 
   // Initial Load
@@ -41,15 +43,15 @@ export default function Map(props: MapProps) {
 
     node
       .append("circle")
-      .attr("r", (d: Node) => d?.size ?? 10)
-      .attr("data-type", (d: Node) => d?.type ?? "change")
+      .attr("r", (d: Node) => d?.size ?? DEFAULT_NODE_SIZE)
+      .attr("data-type", (d: Node) => d?.type ?? DEFAULT_NODE_TYPE)
       .classed("fixed", (d: Node) => d.fx !== undefined);
 
     node
       .append("text")
       .text((d: Node) => d?.label ?? null)
-      .attr("x", (d: Node) => 10 + (d?.size ?? 10))
-      .attr("y", 10)
+      .attr("x", (d: Node) => 10 + (d?.size ?? DEFAULT_NODE_SIZE))
+      .attr("y", DEFAULT_NODE_SIZE)
       .classed("label", true);
 
     function tick() {
