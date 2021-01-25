@@ -5,8 +5,11 @@ import graphs from "../../graphs";
 import { Graph } from "../../types/graph";
 
 export default function Page() {
-  const router = useRouter();
-  const { gid } = router.query;
+  const { gid } = useRouter().query;
 
-  return <Map graph={graphs[gid ? gid[0] : "single"] as Graph} />;
+  return (
+    <>
+      <Map graph={graphs[gid ?? "single"] as Graph} />
+    </>
+  );
 }

@@ -1,13 +1,75 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
+import * as d3 from "d3";
 import { Graph } from "../types/graph";
 
 interface MapProps {
   graph: Graph;
+  width?: number;
+  height?: number;
 }
+
+Map.defaultProps = {
+  width: 1600,
+  height: 800,
+};
 
 export default function Map(props: MapProps) {
   const ref = useRef(null);
+  const width = props.width ?? 600;
+  const height = props.height ?? 400;
+  const xOffset = width / 2;
+  const yOffset = height / 2;
+
+  // Initial Load
+  useEffect(() => {
+    const svg = d3.select(ref.current);
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+  }, []);
+
+  // props update
+  useEffect(() => {
+    const svg = d3.select(ref.current);
+    const node = svg
+      .selectAll<SVGElement, Node>(".node")
+      .data(props.graph.nodes)
+      .join("g")
+      .classed("node", true)
+      .raise();
+
+    node
+      .append("circle")
+      .attr("r", (d: Node) => d?.size ?? 10)
+      .attr("data-type", (d: Node) => d?.type ?? "change")
+      .classed("fixed", (d: Node) => d.fx !== undefined);
+
+    node
+      .append("text")
+      .text((d: Node) => d?.label ?? null)
+      .attr("x", (d: Node) => 10 + (d?.size ?? 10))
+      .attr("y", 10)
+      .classed("label", true);
+
+    function tick() {
+      node.attr(
+        "transform",
+        (d: Node) =>
+          "translate(" +
+          (xOffset + (d?.x ?? 0)) +
+          "," +
+          (yOffset + (d?.y ?? 0)) +
+          ")"
+      );
+    }
+
+    d3.forceSimulation()
+      .nodes(props.graph.nodes)
+      .force("charge", d3.forceManyBody().strength(-300))
+      .force("center", d3.forceCenter(0, 0).strength(0.01))
+      .alpha(0.1)
+      .alphaDecay(0)
+      .on("tick", tick);
+  }, [props]);
 
   return (
     <>
