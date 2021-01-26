@@ -4,18 +4,18 @@ import { useEffect, useRef } from "react";
 import { flow, transform } from "../engine";
 import { Graph, Node } from "../types/graph";
 
-interface MapProps {
+interface ChangeMapProps {
   graph: Graph;
   width?: number;
   height?: number;
 }
 
-Map.defaultProps = {
+ChangeMap.defaultProps = {
   width: 1600,
   height: 800,
 };
 
-export default function Map(props: MapProps) {
+export default function ChangeMap(props: ChangeMapProps) {
   const ref = useRef(null);
   const width = props.width ?? 600;
   const height = props.height ?? 400;

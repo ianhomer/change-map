@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export default function IndexPage() {
-  return <div>Change Map</div>;
+  return (
+    <div>
+      <Link href="/graph/single">Change Map</Link>
+    </div>
+  );
 }

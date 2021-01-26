@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import Map from "../../components/map";
+import ChangeMap from "../../components/ChangeMap";
 import graphs from "../../graphs";
 import { Graph } from "../../types/graph";
 
@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <>
-      <Map graph={graphs[name] as Graph} />
+      <ChangeMap graph={graphs[name] as Graph} />
     </>
   );
 }
