@@ -1,4 +1,4 @@
-import { Node } from "../../types/graph";
+import { Node } from "../types/graph";
 import { transform } from ".";
 
 it("transform OK", () => {
