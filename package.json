@@ -17,6 +17,11 @@
     "test:watch": "jest --watch",
     "update": "yarn run npm-check-updates -u"
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ]
+  },
   "dependencies": {
     "@types/d3": "^7.0.0",
     "d3": "^7.0.1",
