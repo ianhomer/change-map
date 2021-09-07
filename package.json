@@ -7,6 +7,8 @@
     "lint": "run-s prettier eslint",
     "lint:fix": "run-s package:fix prettier:fix eslint:fix",
     "package:fix": "format-package -w",
+    "pre-commit": "lint-staged --quiet && yarn test",
+    "pre-push": "yarn lint",
     "prepare": "husky install",
     "prettier": "npx prettier --check .",
     "prettier:fix": "npx prettier --write .",
@@ -14,12 +16,6 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "update": "yarn run npm-check-updates -u"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --quiet && yarn test",
-      "pre-push": "yarn lint"
-    }
   },
   "dependencies": {
     "@types/d3": "^7.0.0",
