@@ -25,6 +25,7 @@ jobs:
           yarn update
           yarn
           yarn build
+          yarn test
         env:
           CI: false
       - name: commit update
